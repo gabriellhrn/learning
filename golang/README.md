@@ -124,3 +124,12 @@ I use vim as my editor and I added the plugin [vim-go](https://github.com/fatih/
 
 ### Hello world
 
+When you start learning a new language your first program must be a `Hello World` or you will be doomed forever in that language.
+This is a simple program. You don't even need to respect Go's workspace, because you are not going to import any packages. You will just use `fmt` from the standard library. To run this program:
+
+    $ cd projects/hello-world
+    $ go run hello.go
+    Hello world!
+
+And that's it!
+
