@@ -118,6 +118,8 @@ If you follow that structure, you are not going to have problems when running `g
 
 ### Setting up vim
 
+I use vim as my editor and I added the plugin [vim-go](https://github.com/fatih/vim-go) to enhance the Go syntax.
+
 ## Projects
 
 ### Hello world
