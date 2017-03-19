@@ -58,6 +58,21 @@ You now have Go correctly installed! But before you start using it, you will nee
 
 ### Setting up the PATH
 
+In order to be able to run Go, we first need to tell our shell where it can find the Go binaries we installed earlier.
+
+I use [fish](http://fishshell.com/) as my default shell. To configure its PATH, run:
+
+    $ set -U fish_user_paths $fish_user_paths /usr/local/go/bin
+
+To configure the PATH in `bash` (the default shell of the majority of the operating systems), open your `~/.bashrc` with your preferred text editor and add `export PATH=$PATH:/usr/local/go/bin` to it.
+
+Now you need to reload your shell configuration (you can just open a new tab or window in your terminal) and you will be able to run go. To check if everything is fine, run:
+
+    $ go version
+    go version go1.8 linux/amd64
+
+If you receive an output similar to the one above, it means the PATH was set up correctly. Now, to start using go, you just need to [setup the workspace](#setting-up-the-workspace).
+
 ### Setting up the workspace
 
 ### Setting up vim
