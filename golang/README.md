@@ -52,8 +52,6 @@ The command will download and extract `go1.8.linux-amd64.tar.gz` to `/usr/local/
     ├── test
     └── VERSION
 
-    9 directories, 9 files
-
 You now have Go correctly installed! But before you start using it, you will need to [setup your PATH](#setting-up-the-path) and your [Go workspace](#setting-up-the-workspace) (really important!).
 
 ### Setting up the PATH
@@ -74,6 +72,49 @@ Now you need to reload your shell configuration (you can just open a new tab or 
 If you receive an output similar to the one above, it means the PATH was set up correctly. Now, to start using go, you just need to [setup the workspace](#setting-up-the-workspace).
 
 ### Setting up the workspace
+
+Go has a strict directory structure that you must follow. It looks like the following (I explain with more details later on):
+
+    $ tree -L 4 ~/code/go/
+    /home/gabriell/code/go/
+    ├── bin
+    │   └── hello
+    ├── pkg
+    │   └── linux_amd64
+    │       ├── github.com
+    │       │   └── kr
+    │       └── golang.org
+    │           └── x
+    └── src
+        ├── github.com
+        │   ├── gabriellhrn
+        │   │   ├── hello
+        │   └── kr
+        │       └── pty
+        └── golang.org
+            └── x
+                ├── crypto
+                └── net
+
+First of all, you need to define a directory where you are going to put all of your Go code. You may create a folder wherever you want, e.g. you may have a folder called `code` where you store your projects. In that case, create a folder called `go` inside of it:
+
+    $ mkdir ~/code/go
+
+Done! Now you will tell Go where your Go code is located. For `fish`, run:
+
+    $ set -gx GOPATH $HOME/code/go
+
+For `bash`, open `~/.bashrc` with your preferred text editor and add `export GOPAHT=$HOME/code/go` to it.
+
+You will need to reload your shell configuration (you can just open a new tab or window in your terminal).
+
+**Now it is important to know how Go workspace works**. The Go workspace separates your project in some kind of namespaces. Look at the workspace structure above for reference.
+
+- `bin`: contains the compiled binaries built from your source code
+- `pkg`: contains the packages you `import` to your code. They are downloaded from the Internet
+- `src`: the source code used to compile binaries. **You will put *your* source code into** `src/github.com/<your_username>`
+
+If you follow that structure, you are not going to have problems when running `go get`, `go build` or `go run`.
 
 ### Setting up vim
 
